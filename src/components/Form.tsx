@@ -78,7 +78,7 @@ const Form = ({ videoRef, setCaptionsLog }: Props) => {
         <div className="flex gap-4">
           <div className="flex items-center gap-2">
             <Input
-              className="w-fit"
+              className="w-fit text-base"
               type="number"
               id="captionStartMinutes"
               name="captionStartMinutes"
@@ -100,7 +100,7 @@ const Form = ({ videoRef, setCaptionsLog }: Props) => {
 
           <div className="flex items-center gap-2">
             <Input
-              className="w-fit"
+              className="w-fit text-base"
               type="number"
               id="captionStartSeconds"
               name="captionStartSeconds"
@@ -128,7 +128,7 @@ const Form = ({ videoRef, setCaptionsLog }: Props) => {
         <div className="flex gap-4">
           <div className="flex items-center gap-2">
             <Input
-              className="w-fit"
+              className="w-fit text-base"
               type="number"
               id="captionEndMinutes"
               name="captionEndMinutes"
@@ -150,7 +150,7 @@ const Form = ({ videoRef, setCaptionsLog }: Props) => {
 
           <div className="flex items-center gap-2">
             <Input
-              className="w-fit"
+              className="w-fit text-base"
               type="number"
               id="captionEndSeconds"
               name="captionEndSeconds"
@@ -176,7 +176,7 @@ const Form = ({ videoRef, setCaptionsLog }: Props) => {
         <label>Caption text:</label>
         <Textarea
           placeholder="Enter your caption here"
-          className="resize-none"
+          className="resize-none text-base"
           id="captionText"
           name="captionText"
           value={captionData.captionText}

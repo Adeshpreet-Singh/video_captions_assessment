@@ -9,10 +9,10 @@ const Video = ({ videoRef, videoURL }: Props) => {
     <video
       id="video"
       ref={videoRef}
-      width={1024}
-      height={576}
+      width={1280}
+      height={720}
       controls
-      preload="none"
+      preload="auto"
       autoPlay
       muted
       playsInline

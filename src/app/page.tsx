@@ -24,12 +24,12 @@ export default function Home() {
       <Navbar setVideoURL={setVideoURL} />
 
       {videoURL ? (
-        <div className="mx-8 max-w-[50%] flex flex-col justify-center items-center">
+        <div className="mx-4 lg:mx-8 max-w-full lg:max-w-[50%] flex flex-col justify-center items-center">
           <Video videoURL={videoURL} videoRef={videoRef} />
           <CaptionsSection videoRef={videoRef} />
         </div>
       ) : (
-        <div className="">
+        <div className="mx-4">
           <h2 className="text-6xl text-center">Welcome to the</h2>
           <h1 className="mt-4 text-7xl text-center">
             Smart Caption Video Player!
@@ -54,7 +54,7 @@ export default function Home() {
               </SelectTrigger>
               <SelectContent>
                 <SelectGroup>
-                  <SelectLabel>Fruits</SelectLabel>
+                  <SelectLabel>Sample Videos</SelectLabel>
                   {mediaJSON.map((video, index) => (
                     <SelectItem key={index} value={video.link}>
                       {video.title}
