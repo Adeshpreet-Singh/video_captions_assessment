@@ -3,17 +3,8 @@
 import CaptionsSection from "@/components/CaptionsSection";
 import Navbar from "@/components/Navbar";
 import Video from "@/components/Video";
+import Welcome from "@/components/Welcome";
 import { useRef, useState } from "react";
-import {
-  Select,
-  SelectContent,
-  SelectGroup,
-  SelectItem,
-  SelectLabel,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
-import { mediaJSON } from "@/lib/data";
 
 export default function Home() {
   const videoRef = useRef<HTMLVideoElement | null>(null);
@@ -24,47 +15,12 @@ export default function Home() {
       <Navbar setVideoURL={setVideoURL} />
 
       {videoURL ? (
-        <div className="mx-4 lg:mx-8 max-w-full lg:max-w-[50%] flex flex-col justify-center items-center">
+        <div className="mx-4 max-w-full xl:max-w-[75%] flex flex-col justify-center items-center">
           <Video videoURL={videoURL} videoRef={videoRef} />
           <CaptionsSection videoRef={videoRef} />
         </div>
       ) : (
-        <div className="mx-4">
-          <h2 className="text-6xl text-center">Welcome to the</h2>
-          <h1 className="mt-4 text-7xl text-center">
-            Smart Caption Video Player!
-          </h1>
-          <h3 className="mt-12 text-2xl text-center">
-            Watch videos and add captions effortlessly.
-          </h3>
-          <h2 className="mt-16 text-xl">Ready to dive in?</h2>
-          <p className="text-xl">
-            Just copy and paste the URL of your video into the search bar above
-            and click the search icon.
-          </p>
-          <h3 className="mt-16 text-xl">No video URL? No problem!</h3>
-          <p className="text-xl">
-            Select a sample video from the dropdown menu below.
-          </p>
-
-          <div className="mt-4">
-            <Select onValueChange={(URL) => setVideoURL(URL)}>
-              <SelectTrigger className="w-fit">
-                <SelectValue placeholder="Select a video" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectGroup>
-                  <SelectLabel>Sample Videos</SelectLabel>
-                  {mediaJSON.map((video, index) => (
-                    <SelectItem key={index} value={video.link}>
-                      {video.title}
-                    </SelectItem>
-                  ))}
-                </SelectGroup>
-              </SelectContent>
-            </Select>
-          </div>
-        </div>
+        <Welcome setVideoURL={setVideoURL} />
       )}
     </main>
   );
