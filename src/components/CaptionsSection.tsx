@@ -1,4 +1,4 @@
-import React, { MutableRefObject, useState } from "react";
+import React, { MutableRefObject, useEffect, useState } from "react";
 import Captions from "@/components/Captions";
 import Form from "@/components/Form";
 import { Button } from "@/components/ui/button";
@@ -11,10 +11,19 @@ const CaptionsSection = ({ videoRef }: Props) => {
   const [captionsLog, setCaptionsLog] = useState<TextTrackCue[]>([]);
   const [showCaptionOptions, setShowCaptionOptions] = useState(false);
 
+  useEffect(() => {
+    setCaptionsLog(
+      Object.values(videoRef.current?.textTracks?.[0]?.cues || "")
+    );
+  }, [showCaptionOptions]);
+
   return (
-    <div className="flex flex-col gap-16 w-full mt-8">
+    <div className="flex flex-col gap-16 lg:grid lg:grid-flow-col w-full mt-8">
       {showCaptionOptions ? (
-        <Form videoRef={videoRef} setCaptionsLog={setCaptionsLog} />
+        <>
+          <Form videoRef={videoRef} setCaptionsLog={setCaptionsLog} />
+          <Captions captionsLog={captionsLog} />
+        </>
       ) : (
         <Button
           type="button"
@@ -26,8 +35,6 @@ const CaptionsSection = ({ videoRef }: Props) => {
           Show Add captions options
         </Button>
       )}
-
-      <Captions captionsLog={captionsLog} />
     </div>
   );
 };

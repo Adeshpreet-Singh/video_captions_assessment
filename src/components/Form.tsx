@@ -62,7 +62,7 @@ const Form = ({ videoRef, setCaptionsLog }: Props) => {
       toast({
         variant: "destructive",
         title: "Invalid caption:",
-        description: "End time cannot be before start time.",
+        description: "End time cannot be equal or before the start time.",
       });
       return;
     }
