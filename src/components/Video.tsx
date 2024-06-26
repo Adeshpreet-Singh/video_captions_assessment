@@ -17,7 +17,9 @@ const Video = ({ videoRef, videoURL }: Props) => {
       muted
       playsInline
       src={videoURL}
-    />
+    >
+      <track kind="subtitles" srcLang="en" label="English" default />
+    </video>
   );
 };
 
